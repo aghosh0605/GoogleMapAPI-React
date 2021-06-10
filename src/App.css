@@ -1,0 +1,13 @@
+.success {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px
+}
+.success:hover {
+  border-color: #4CAF50; /* Green */
+  background-color: white;
+  color: black;
+}

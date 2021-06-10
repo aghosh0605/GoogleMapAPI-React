@@ -1,61 +1,46 @@
-import React from "react";
-import {
-  GoogleMap,
-  LoadScript,
-  Marker,
-  Polyline,
-} from "@react-google-maps/api";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import GoogleMapReact from "google-map-react";
+import Marker from "./Marker";
+import "./App.css";
+
+let path = [];
 
 const MapContainer = () => {
-  const mapContainerStyle = {
-    height: "400px",
-    width: "800px",
-  };
+  const [center, setCenter] = useState({ lat: 11.0168, lng: 76.9558 });
+  const [zoom, setZoom] = useState(11);
 
-  const center = {
-    lat: 0,
-    lng: -180,
-  };
+  function createMapOptions(maps) {
+    return {
+      panControl: true,
+      mapTypeControl: true,
+      scrollwheel: true,
+    };
+  }
 
-  const onLoad = (polyline) => {
-    console.log("polyline: ", polyline);
-  };
-
-  const path = [
-    { lat: 37.772, lng: -122.214 },
-    { lat: 21.291, lng: -157.821 },
-    { lat: -18.142, lng: 178.431 },
-    { lat: -27.467, lng: 153.027 },
-  ];
-
-  const options = {
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF0000",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: 30000,
-    zIndex: 1,
-  };
+  function _onClick(obj) {
+    let location = { latitude: obj.lat, longitude: obj.lng };
+    path.push(location);
+  }
+  function logfile() {
+    console.log(path);
+  }
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyC6DN2P1h7GqFozWGvMhVc3RR-cOLUBDnM">
-      <GoogleMap
-        id="marker-example"
-        mapContainerStyle={mapContainerStyle}
-        zoom={2}
-        center={center}
+    <div style={{ height: "98vh", width: "100%" }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyC6DN2P1h7GqFozWGvMhVc3RR-cOLUBDnM" }}
+        defaultCenter={center}
+        defaultZoom={zoom}
+        options={createMapOptions}
+        onClick={_onClick}
       >
-        <Polyline onLoad={onLoad} path={path} options={options} />
-        {path.map((item) => {
-          return <Marker position={item} draggable={false} />;
-        })}
-      </GoogleMap>
-    </LoadScript>
+        <Marker lat={11.0168} lng={76.9558} name="My Marker" color="blue" />
+        <Button className="success" onClick={logfile}>
+          Log{" "}
+        </Button>
+      </GoogleMapReact>
+    </div>
   );
 };
 export default MapContainer;
