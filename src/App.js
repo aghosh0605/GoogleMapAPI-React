@@ -34,8 +34,9 @@ const MapContainer = () => {
     console.log(text);
   }
 
-  function clearfile(){
-    path=[]
+  function clearfile() {
+    path = [];
+    setContent("");
   }
 
   const example = [
@@ -45,8 +46,8 @@ const MapContainer = () => {
   ];
 
   return (
-    <div >
-      <div className='left_map'>
+    <div>
+      <div className="left_map">
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyC6DN2P1h7GqFozWGvMhVc3RR-cOLUBDnM" }}
           defaultCenter={center}
@@ -55,7 +56,7 @@ const MapContainer = () => {
           onClick={_onClick}
         ></GoogleMapReact>
       </div>
-      <div className='taskbar'>
+      <div className="taskbar">
         <Button className="success" onClick={logfile}>
           Log
         </Button>
