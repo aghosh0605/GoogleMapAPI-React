@@ -1,0 +1,38 @@
+.success {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px;
+}
+.success:hover {
+  border-color: #4caf50; /* Green */
+  background-color: white;
+  color: black;
+}
+.clear {
+  background-color: red;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 7px;
+}
+.clear:hover {
+  border-color: red; /* Green */
+  background-color: white;
+  color: black;
+}
+.taskbar {
+  float: right;
+  width: 27%;
+  height: 100%;
+  padding: 10px;
+}
+.left_map {
+  width: 70%;
+  height: 98vh;
+  float: left;
+}
