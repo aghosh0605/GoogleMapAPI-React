@@ -1,6 +1,6 @@
 # GoogleMapAPI-React
 ### This repo consists two different approaches to this project.
-1. `Main` consists code that is created with `google-map-react` library. [Click here](https://github.com/google-map-react/google-map-react/blob/HEAD/API.md) to see more about the library.
+1. `google-map-react` consists code that is created with `google-map-react` library. [Click here](https://github.com/google-map-react/google-map-react/blob/HEAD/API.md) to see more about the library.
 2. `react-google-maps` branch consists code that is created with `google-map-react` library.[Click here](https://react-google-maps-api-docs.netlify.app/) to see more about the library.
 
 ### According to me the 2nd Library is good and has good docs.
